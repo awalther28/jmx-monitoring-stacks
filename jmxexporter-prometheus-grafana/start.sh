@@ -33,7 +33,7 @@ docker-compose exec tools bash -c "confluent iam rolebinding create \
     --kafka-cluster-id $KAFKA_CLUSTER_ID"
 
 echo -e "Launch $MONITORING_STACK"
-docker-compose up -d prometheus node-exporter kafka-lag-exporter grafana
+docker-compose up -d prometheus node-exporter kafka-lag-exporter grafana ccloud-exporter
 
 echo -e "\nView Grafana dashboards at (admin/password) ->"
 echo -e "http://localhost:3000"

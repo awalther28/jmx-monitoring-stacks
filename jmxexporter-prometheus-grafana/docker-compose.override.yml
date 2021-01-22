@@ -48,6 +48,16 @@ services:
     environment:
       KAFKAREST_OPTS: -javaagent:/usr/share/jmx-exporter/jmx_prometheus_javaagent-0.12.0.jar=1234:/usr/share/jmx-exporter/confluent_rest.yml
 
+  ccloud-exporter:
+    image: dabz/ccloudexporter:latest
+    container_name: ccloud-exporter
+    hostname: ccloud-exporter
+    restart: always
+    environment:
+      - CCLOUD_API_KEY=$CCLOUD_API_KEY
+      - CCLOUD_API_SECRET=$CCLOUD_API_SECRET
+      - CCLOUD_CLUSTER=$CCLOUD_CLUSTER
+     
   prometheus:
     image: prom/prometheus:v2.11.1
     container_name: prometheus
